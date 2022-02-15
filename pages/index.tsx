@@ -5,31 +5,32 @@ import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-slate-400 py-20 px-10 flex-col space-y-5 min-h-screen">
-      <div className="bg-white p-6 rounded-3xl shadow-xl">
-        <span className="font-semibold text-3xl">Select Item</span>
+    <div className="bg-slate-400 xl:place-content-center py-20 px-10 grid gap-10 lg:grid-cols-2 xl:grid-cols-3 space-y-5 min-h-screen">
+      <div className="bg-white dark:bg-black flex flex-col justify-between p-6 rounded-3xl shadow-xl">
+        <span className="font-semibold text-3xl dark:text-white">
+          Select Item
+        </span>
 
         <ul>
-          {[1, 2, 3, 4, 5].map((item) => (
-            <div
-              key={item}
-              className="flex justify-between my-2 even:bg-yellow-400"
-            >
-              <span className="text-gray-500">Gray Chair</span>
-              <span className="font-semibold">$19</span>
+          {[1, 2].map((item) => (
+            <div key={item} className="flex justify-between my-2 ">
+              <span className="text-gray-500 dark:text-gray-100">
+                Gray Chair
+              </span>
+              <span className="font-semibold dark:text-white">$19</span>
             </div>
           ))}
         </ul>
         <div className="flex justify-between mt-2 pt-2 border-t-2 border-dashed">
-          <span>Total</span>
-          <span className="font-semibold">$10</span>
+          <span className="dark:text-white">Total</span>
+          <span className="font-semibold dark:text-white">$10</span>
         </div>
-        <button className="mt-5 bg-blue-500 text-white p-3 text-center rounded-xl w-2/4 mx-auto hover:bg-teal-500 hover:text-black active:bg-yellow-500 focus:bg-red-500">
+        <button className="mt-5 block bg-blue-500 dark:bg-black dark:border-white dark:border dark:hover:bg-white dark:hover:text-black text-white p-3 text-center justify-self-center rounded-xl w-2/4 mx-auto hover:bg-teal-500 hover:text-black active:bg-yellow-500 focus:bg-red-500">
           Checkout
         </button>
       </div>
       <div className="bg-white overflow-hidden rounded-3xl shadow-xl group">
-        <div className="bg-blue-500 p-6 pb-14">
+        <div className="portrait:bg-indigo-500 landscape:bg-teal-500 bg-blue-500  p-6 pb-14 xl:pb-40 ">
           <span className="text-white text-2xl">Profile</span>
         </div>
         <div className="rounded-3xl p-6 bg-white relative -top-5">
@@ -50,7 +51,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white p-10 rounded-3xl shadow-xl">
+      <div className="bg-white p-10 rounded-3xl shadow-xl lg:col-span-2 xl:col-span-1">
         <div className="flex mb-5 justify-between items-center">
           <span>←</span>
           <div className="space-x-3">
@@ -86,7 +87,6 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white p-10 rounded-3xl shadow-xl"></div>
     </div>
   );
 };
