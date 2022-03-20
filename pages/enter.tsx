@@ -1,7 +1,8 @@
 import Button from "@components/button";
 import Input from "@components/input";
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useMutation from "../libs/client/useMutation";
 import { cls } from "../libs/client/utils";
@@ -41,6 +42,12 @@ const Enter: NextPage = () => {
     if (tokenLoading) return;
     confirmToken(validForm)
   }
+  const router = useRouter();
+  useEffect(() => {
+    if (tokenData?.ok) {
+      router.push('/')
+    }
+  }, [tokenData, router])
   console.log(loading, data, error)
   return (
     <div className="mt-16 px-4">
@@ -59,7 +66,7 @@ const Enter: NextPage = () => {
             type="number"
             required
           />
-          <Button text={loading ? "Loading" : "Confirm Token"} />
+          <Button text={tokenLoading ? "Loading" : "Confirm Token"} />
         </form> : (
           <>
             <div className="flex flex-col items-center">
